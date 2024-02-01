@@ -1,94 +1,104 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import styles from "./page.module.scss";
+import { useState } from "react";
+import ReactCardFlip from "react-card-flip";
 
 export default function Home() {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleClick = (e: any) => {
+    e.preventDefault();
+    setIsFlipped((prev) => !prev);
+  };
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <main className={styles["main"]}>
+      <div>
+        <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+          <div className={styles["main-card"]}>
+            <h1 className={styles["main-card-title"]}>Anuar Constructions</h1>
+            <span className={styles["main-card-statement"]}>
+              Your Vision, Our Expertise
+            </span>
+            <span className={styles["main-card-statement-more"]}>
+              Our approach is centered on understanding your unique needs and
+              delivering tailored construction solutions.
+            </span>
+            <button
+              onClick={handleClick}
+              className={styles["main-card-contact"]}
+            >
+              Contact Us
+            </button>
+          </div>
+
+          <div className={styles["main-card"]}>
+            <h1 className={styles["main-card-title"]}>
+              1234 West Green St., Dallas, TX, 84634
+            </h1>
+            <span className={styles["main-card-statement"]}>
+              anuar@gmail.com
+            </span>
+            <span className={styles["main-card-statement-more"]}>
+              +1 304 465 4534
+            </span>
+            <button
+              onClick={handleClick}
+              className={styles["main-card-contact"]}
+            >
+              Go Back
+            </button>
+          </div>
+        </ReactCardFlip>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className={styles["main-grid"]}>
+        <div
+          className={styles["main-grid-case"]}
+          style={{
+            backgroundImage: `url(/images/case1.jpeg)`,
+            width: "100%",
+            height: "100%",
+            backgroundSize: "cover",
+            overflow: "hidden",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+        ></div>
+        <div
+          className={styles["main-grid-case"]}
+          style={{
+            backgroundImage: `url(/images/case1.jpeg)`,
+            width: "100%",
+            height: "100%",
+            backgroundSize: "cover",
+            overflow: "hidden",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+        ></div>
+        <div
+          className={styles["main-grid-case"]}
+          style={{
+            backgroundImage: `url(/images/case1.jpeg)`,
+            width: "100%",
+            height: "100%",
+            backgroundSize: "cover",
+            overflow: "hidden",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+        ></div>
+        <div
+          className={styles["main-grid-case"]}
+          style={{
+            backgroundImage: `url(/images/case1.jpeg)`,
+            width: "100%",
+            height: "100%",
+            backgroundSize: "cover",
+            overflow: "hidden",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+        ></div>
       </div>
     </main>
   );
