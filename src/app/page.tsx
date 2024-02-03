@@ -15,7 +15,7 @@ export default function Home() {
       <div>
         <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
           <div className={styles["main-card"]}>
-            <h1 className={styles["main-card-title"]}>Anuar Constructions</h1>
+            <h1 className={styles["main-card-title"]}>Bright Alim Corporation</h1>
             <span className={styles["main-card-statement"]}>
               Your Vision, Our Expertise
             </span>
@@ -33,13 +33,13 @@ export default function Home() {
 
           <div className={styles["main-card"]}>
             <h1 className={styles["main-card-title"]}>
-              1234 West Green St., Dallas, TX, 84634
+              2327 S Arizona Ave, Pecos, TX, 79772
             </h1>
             <span className={styles["main-card-statement"]}>
               anuar@gmail.com
             </span>
             <span className={styles["main-card-statement-more"]}>
-              +1 304 465 4534
+              +1 (609) 305-8507
             </span>
             <button
               onClick={handleClick}
