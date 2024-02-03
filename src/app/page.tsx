@@ -2,14 +2,12 @@
 import styles from "./page.module.scss";
 import { useEffect, useState } from "react";
 import ReactCardFlip from "react-card-flip";
-import { Gallery } from "react-grid-gallery";
 import { useRouter } from "next/navigation";
+import { importAll } from "./_helpers";
 export default function Home() {
   const router = useRouter();
   const [isFlipped, setIsFlipped] = useState(false);
-  const [caseCount, setCaseCount]: any = useState(
-    process.env.NEXT_PUBLIC_CASE_COUNT
-  );
+  const [caseCount, setCaseCount]: any = useState();
 
   const handleClick = (e: any) => {
     e.preventDefault();
@@ -20,7 +18,25 @@ export default function Home() {
     router.push(`/${case_number}`);
   };
 
-  const handleCountImages = () => {};
+  const handleCountImages = () => {
+    const components = require.context(`../../public/images/`, true);
+    const listOfImages = importAll(components);
+    let count = 0;
+    for (let index = 0; index < 10000; index++) {
+      const imgObj = listOfImages.find((image: any) =>
+        image.default.src.includes(`case${index + 1}`)
+      );
+      if (!imgObj) {
+        break;
+      }
+      count += 1;
+    }
+    setCaseCount(count);
+  };
+
+  useEffect(() => {
+    handleCountImages();
+  });
   return (
     <main className={styles["main"]}>
       <div>
@@ -64,28 +80,26 @@ export default function Home() {
         </ReactCardFlip>
       </div>
       <div className={styles["main-grid"]}>
-        {Array.from(Array(parseInt(caseCount)).keys()).map(
-          (case_number: number) => {
-            return (
-              <div
-                onClick={() => handleCaseClick(case_number + 1)}
-                key={case_number}
-                className={styles["main-grid-case"]}
-                style={{
-                  backgroundImage: `url(/images/case${case_number + 1}/case${
-                    case_number + 1
-                  }_1.jpeg)`,
-                  width: "100%",
-                  height: "100%",
-                  backgroundSize: "cover",
-                  overflow: "hidden",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
-                }}
-              ></div>
-            );
-          }
-        )}
+        {Array.from(Array(caseCount).keys()).map((case_number: number) => {
+          return (
+            <div
+              onClick={() => handleCaseClick(case_number + 1)}
+              key={case_number}
+              className={styles["main-grid-case"]}
+              style={{
+                backgroundImage: `url(/images/case${case_number + 1}/case${
+                  case_number + 1
+                }_1.jpeg)`,
+                width: "100%",
+                height: "100%",
+                backgroundSize: "cover",
+                overflow: "hidden",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              }}
+            ></div>
+          );
+        })}
       </div>
     </main>
   );

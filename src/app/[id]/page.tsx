@@ -5,7 +5,8 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { Image } from "react-grid-gallery";
 import { Counter, Slideshow } from "yet-another-react-lightbox/plugins";
-
+import { importAll } from "../_helpers";
+import { getImageSize } from "react-image-size";
 export interface CustomImage extends Image {
   original: string;
 }
@@ -15,11 +16,12 @@ export default function Case({ params }: { params: { id: number } }) {
   const [index, setIndex] = useState(-1);
 
   const handleClick = (index: number, item: CustomImage) => setIndex(index);
-  const importAll = (r: any) => {
-    return r.keys().map(r);
+  const handleDimensions = async (path: string) => {
+    const dimensions = await getImageSize(path);
+    return dimensions;
   };
 
-  const handleGetAllImages = () => {
+  const handleGetAllImages = async () => {
     const components = require.context(`../../../public/images`, true);
     const listOfImages = importAll(components);
     const filtered = listOfImages.filter((image: any) => {
@@ -28,11 +30,14 @@ export default function Case({ params }: { params: { id: number } }) {
     const count = filtered.length;
     const imagesLocal = [];
     for (let index = 1; index < count + 1; index++) {
+      const dimensions = handleDimensions(
+        `/images/case${params.id}/case${params.id}_${index}.jpeg`
+      );
       imagesLocal.push({
         src: `/images/case${params.id}/case${params.id}_${index}.jpeg`,
         original: `/images/case${params.id}/case${params.id}_${index}.jpeg`,
-        // width: 320,
-        // height: 212,
+        width: (await dimensions).width,
+        height: (await dimensions).height,
         alt: `Case ${params.id} image ${index}`,
         caption: "37H (gratispgraphy.com)",
       });
