@@ -7,13 +7,16 @@ import { Image } from "react-grid-gallery";
 import { Counter, Slideshow } from "yet-another-react-lightbox/plugins";
 import { importAll } from "../_helpers";
 import { getImageSize } from "react-image-size";
+import { ThreeCircles } from "react-loader-spinner";
+import styles from "../page.module.scss";
 export interface CustomImage extends Image {
   original: string;
 }
 export default function Case({ params }: { params: { id: number } }) {
   const [images, setImages]: any = useState([]);
-  const [slides, setSlides]: any = useState();
+  const [slides, setSlides]: any = useState([]);
   const [index, setIndex] = useState(-1);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleClick = (index: number, item: CustomImage) => setIndex(index);
   const handleDimensions = async (path: string) => {
@@ -50,8 +53,8 @@ export default function Case({ params }: { params: { id: number } }) {
         height,
       })
     );
-
     setSlides(slidesLocal);
+    setTimeout(() => setIsLoading(false), 500);
   };
 
   useEffect(() => {
@@ -60,19 +63,32 @@ export default function Case({ params }: { params: { id: number } }) {
   return (
     images.length > 0 && (
       <>
-        <Gallery
-          onClick={handleClick}
-          enableImageSelection={false}
-          images={images}
-        />
-        {slides && (
-          <Lightbox
-            slides={slides}
-            open={index >= 0}
-            index={index}
-            plugins={[Counter, Slideshow]}
-            close={() => setIndex(-1)}
+        {isLoading && (
+          <ThreeCircles
+            visible={isLoading}
+            height="100"
+            width="100"
+            color="#ffffff"
+            ariaLabel="three-circles-loading"
+            wrapperStyle={{}}
+            wrapperClass={styles["spinner"]}
           />
+        )}
+        {!isLoading && (
+          <>
+            <Gallery
+              onClick={handleClick}
+              enableImageSelection={false}
+              images={images}
+            />
+            <Lightbox
+              slides={slides}
+              open={index >= 0}
+              index={index}
+              plugins={[Counter, Slideshow]}
+              close={() => setIndex(-1)}
+            />
+          </>
         )}
       </>
     )

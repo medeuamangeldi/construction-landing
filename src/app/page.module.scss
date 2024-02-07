@@ -8,6 +8,16 @@
   src: url("/fonts/AirbnbCereal_W_Lt.otf");
 }
 
+.spinner {
+  position: absolute;
+
+  // this will place spinner in center of form
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
 .main {
   padding: 20px;
   display: flex;
