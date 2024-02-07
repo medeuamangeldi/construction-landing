@@ -4,10 +4,16 @@ import { useEffect, useState } from "react";
 import ReactCardFlip from "react-card-flip";
 import { useRouter } from "next/navigation";
 import { importAll } from "./_helpers";
+import Image from "next/image";
 export default function Home() {
   const router = useRouter();
   const [isFlipped, setIsFlipped] = useState(false);
   const [caseCount, setCaseCount]: any = useState();
+  const caseNames = [
+    "Design Engineering and Welding",
+    "Civil Works",
+    "Creativity",
+  ];
 
   const handleClick = (e: any) => {
     e.preventDefault();
@@ -42,15 +48,18 @@ export default function Home() {
       <div>
         <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
           <div className={styles["main-card"]}>
-            <h1 className={styles["main-card-title"]}>
+            {/* <h1 className={styles["main-card-title"]}>
               Bright Alim Corporation
-            </h1>
+            </h1> */}
+            <Image
+              src={`/logo/logo_white.png`}
+              alt="logo"
+              width="300"
+              height="300"
+              style={{ color: "white" }}
+            />
             <span className={styles["main-card-statement"]}>
               Your Vision, Our Expertise
-            </span>
-            <span className={styles["main-card-statement-more"]}>
-              Our approach is centered on understanding your unique needs and
-              delivering tailored construction solutions.
             </span>
             <button
               onClick={handleClick}
@@ -74,7 +83,7 @@ export default function Home() {
               onClick={handleClick}
               className={styles["main-card-contact"]}
             >
-              Go Back
+              Back
             </button>
           </div>
         </ReactCardFlip>
@@ -97,7 +106,11 @@ export default function Home() {
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
               }}
-            ></div>
+            >
+              <span className={styles["main-grid-case-caption"]}>
+                {caseNames[case_number]}
+              </span>
+            </div>
           );
         })}
       </div>
