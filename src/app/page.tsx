@@ -74,7 +74,7 @@ export default function Home() {
               2327 S Arizona Ave, Pecos, TX, 79772
             </h1>
             <span className={styles["main-card-statement"]}>
-              anuar@gmail.com
+              anuar@brightalim.com
             </span>
             <span className={styles["main-card-statement-more"]}>
               +1 (609) 305-8507
