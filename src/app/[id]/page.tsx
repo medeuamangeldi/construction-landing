@@ -9,10 +9,14 @@ import { importAll } from "../_helpers";
 import { getImageSize } from "react-image-size";
 import { ThreeCircles } from "react-loader-spinner";
 import styles from "../page.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleLeft } from "@fortawesome/free-regular-svg-icons";
+import { useRouter } from "next/navigation";
 export interface CustomImage extends Image {
   original: string;
 }
 export default function Case({ params }: { params: { id: number } }) {
+  const router = useRouter();
   const [images, setImages]: any = useState([]);
   const [slides, setSlides]: any = useState([]);
   const [index, setIndex] = useState(-1);
@@ -57,12 +61,21 @@ export default function Case({ params }: { params: { id: number } }) {
     setTimeout(() => setIsLoading(false), 500);
   };
 
+  const handleLeftArrowClick = () => {
+    router.push("/");
+  };
+
   useEffect(() => {
     handleGetAllImages();
   }, []);
   return (
     images.length > 0 && (
       <>
+        <FontAwesomeIcon
+          onClick={handleLeftArrowClick}
+          className={styles["left-arrow"]}
+          icon={faCircleLeft}
+        />
         {isLoading && (
           <ThreeCircles
             visible={isLoading}

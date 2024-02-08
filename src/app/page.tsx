@@ -5,13 +5,14 @@ import ReactCardFlip from "react-card-flip";
 import { useRouter } from "next/navigation";
 import { importAll } from "./_helpers";
 import Image from "next/image";
+import Link from "next/link";
 export default function Home() {
   const router = useRouter();
   const [isFlipped, setIsFlipped] = useState(false);
   const [caseCount, setCaseCount]: any = useState();
   const caseNames = [
-    "Design Engineering and Welding",
-    "Civil Works",
+    "Design Engineering, Industrial and Welding",
+    "Civil Works and Residential",
     "Creativity",
   ];
 
@@ -74,10 +75,12 @@ export default function Home() {
               2327 S Arizona Ave, Pecos, TX, 79772
             </h1>
             <span className={styles["main-card-statement"]}>
-              anuar@brightalim.com
+              <Link href="mailto:anuar@brightalim.com">
+                anuar@brightalim.com
+              </Link>
             </span>
             <span className={styles["main-card-statement-more"]}>
-              +1 (609) 305-8507
+              <Link href={`tel:+16093058507`}>+1 (609) 305-8507</Link>
             </span>
             <button
               onClick={handleClick}
@@ -88,6 +91,7 @@ export default function Home() {
           </div>
         </ReactCardFlip>
       </div>
+      <div className={styles["main-section-title"]}>Our Projects</div>
       <div className={styles["main-grid"]}>
         {Array.from(Array(caseCount).keys()).map((case_number: number) => {
           return (
