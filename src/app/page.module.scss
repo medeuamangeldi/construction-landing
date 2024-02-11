@@ -33,6 +33,21 @@
   }
 }
 
+@keyframes glowing {
+  0% {
+    // background-color: #2ba805;
+    box-shadow: 0 0 5px #d9dfd7;
+  }
+  50% {
+    // background-color: #49e819;
+    box-shadow: 0 0 20px #d9dfd7;
+  }
+  100% {
+    // background-color: #2ba805;
+    box-shadow: 0 0 5px #d9dfd7;
+  }
+}
+
 .main {
   animation: smooth-appear 2s ease forwards;
   bottom: -100%;
@@ -47,7 +62,7 @@
     height: 500px;
     font-family: "AirbnbCereal_W_Lt";
     padding: 50px;
-    background-color: #1a1a1a;
+    background-color: #000000;
     border: 0 solid #e5e7eb;
     border-radius: 10px;
     color: white;
@@ -66,9 +81,10 @@
     }
 
     &-statement {
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 400;
       color: #cdd2db;
+      margin-bottom: 20px;
 
       &-more {
         margin-top: 100px;
@@ -78,14 +94,25 @@
     }
 
     &-contact {
-      background-color: #e7e5e5;
-      color: black;
+      color: rgb(255, 255, 255);
       border-style: none;
-      border-radius: 10px;
+      text-decoration: underline;
+      border-radius: 30px;
       padding: 2px 20px;
       cursor: pointer;
       margin-top: auto;
-      font-size: 15px;
+      font-size: 19px;
+      &-front {
+        animation: glowing 1300ms infinite;
+        color: rgb(255, 255, 255);
+        border-style: none;
+        text-decoration: underline;
+        border-radius: 30px;
+        padding: 2px 20px;
+        cursor: pointer;
+        margin-top: auto;
+        font-size: 19px;
+      }
     }
   }
 
@@ -102,7 +129,7 @@
       height: 100%;
       font-family: "AirbnbCereal_W_Lt";
       padding: 100px;
-      background-color: #1a1a1a;
+      background-color: #4b4646;
       border: 0 solid #e5e7eb;
       border-radius: 10px;
       color: white;
@@ -117,7 +144,7 @@
       transition: all 0.4s ease;
 
       &-caption {
-        padding: 10px 20px;
+        // padding: 10px 20px;
         text-align: center;
         border-radius: 5px;
         background-color: #1a1a1a;
@@ -125,6 +152,7 @@
         bottom: 0;
         right: 0;
         left: 0;
+        transition: all 0.4s ease;
       }
     }
 

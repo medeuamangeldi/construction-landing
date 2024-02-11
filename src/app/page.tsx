@@ -55,19 +55,19 @@ export default function Home() {
             <Image
               src={`/logo/logo_white.png`}
               alt="logo"
-              width="300"
-              height="300"
+              width="280"
+              height="280"
               style={{ color: "white" }}
             />
             <span className={styles["main-card-statement"]}>
               Your Vision, Our Expertise
             </span>
-            <button
+            <div
               onClick={handleClick}
-              className={styles["main-card-contact"]}
+              className={styles["main-card-contact-front"]}
             >
               Contact Us
-            </button>
+            </div>
           </div>
 
           <div className={styles["main-card"]}>
@@ -82,12 +82,9 @@ export default function Home() {
             <span className={styles["main-card-statement-more"]}>
               <Link href={`tel:+16093058507`}>+1 (609) 305-8507</Link>
             </span>
-            <button
-              onClick={handleClick}
-              className={styles["main-card-contact"]}
-            >
+            <div onClick={handleClick} className={styles["main-card-contact"]}>
               Back
-            </button>
+            </div>
           </div>
         </ReactCardFlip>
       </div>
