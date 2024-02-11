@@ -58,7 +58,7 @@ export default function Case({ params }: { params: { id: number } }) {
       })
     );
     setSlides(slidesLocal);
-    setTimeout(() => setIsLoading(false), 500);
+    setTimeout(() => setIsLoading(false), 100);
   };
 
   const handleLeftArrowClick = () => {
