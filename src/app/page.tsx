@@ -53,11 +53,11 @@ export default function Home() {
               Bright Alim Corporation
             </h1> */}
             <Image
-              src={`/logo/logo_white.png`}
+              src={`/logo/logo_black.png`}
               alt="logo"
               width="280"
               height="280"
-              style={{ color: "white" }}
+              style={{ color: "black" }}
             />
             <span className={styles["main-card-statement"]}>
               Your Vision, Our Expertise
