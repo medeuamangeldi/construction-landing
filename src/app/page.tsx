@@ -6,6 +6,12 @@ import { useRouter } from "next/navigation";
 import { importAll } from "./_helpers";
 import Image from "next/image";
 import Link from "next/link";
+import Menu from "./_components/Menu/menu.component";
+import { LuConstruction } from "react-icons/lu";
+import { IoCheckmarkDoneSharp } from "react-icons/io5";
+import { GrGallery } from "react-icons/gr";
+import { FaSquareWhatsapp } from "react-icons/fa6";
+import { MdAttachEmail } from "react-icons/md";
 export default function Home() {
   const router = useRouter();
   const [isFlipped, setIsFlipped] = useState(false);
@@ -46,49 +52,82 @@ export default function Home() {
   });
   return (
     <main className={styles["main"]}>
+      <Menu />
       <div>
-        <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-          <div className={styles["main-card"]}>
-            {/* <h1 className={styles["main-card-title"]}>
-              Bright Alim Corporation
-            </h1> */}
+        <div className={styles["main-card"]}>
+          <div className={styles["main-card-hero"]}>
+            <span className={styles["main-card-hero-statement"]}>
+              HIGH-QUALITY AND RELIABLE SOLUTIONS FOR YOUR FACILITIES!
+            </span>
             <Image
-              src={`/logo/logo_black.png`}
-              alt="logo"
-              width="280"
-              height="280"
-              style={{ color: "black" }}
+              src={`/photos/hero1.webp`}
+              alt="image1"
+              width="440"
+              height="307"
+              className={styles["main-card-hero-image"]}
             />
-            <span className={styles["main-card-statement"]}>
-              Your Vision, Our Expertise
-            </span>
-            <div
-              onClick={handleClick}
-              className={styles["main-card-contact-front"]}
-            >
-              Contact Us
+          </div>
+          <div className={styles["main-card-subhero"]}>
+            <div className={styles["main-card-subhero-titles"]}>
+              <span className={styles["main-card-subhero-titles-title"]}>
+                11 BITCOIN FARMS SERVICE
+              </span>
+              <span className={styles["main-card-subhero-titles-title"]}>
+                +7 YEARS OF EXPERIENCE
+              </span>
+              <span className={styles["main-card-subhero-titles-title"]}>
+                + 50 employees
+              </span>
+            </div>
+            <p className={styles["main-card-subhero-text"]}>
+              lf you are seeking a reliable solution for the design and
+              construction of a competitive cryptocurrency mining farm but are
+              unsure where to start or whom to trust, we provide services that
+              range from individual cryptocurrency mining rigs to complete
+              mining farm setups
+            </p>
+          </div>
+          <div id="services" className={styles["main-card-services"]}>
+            <div className={styles["main-card-services-title"]}>
+              <LuConstruction /> OUR SERVICES
+            </div>
+            <div className={styles["main-card-services-list"]}>
+              <span className={styles["main-card-services-list-item"]}>
+                <IoCheckmarkDoneSharp />
+                Construction of data centers
+              </span>
+              <span className={styles["main-card-services-list-item"]}>
+                <IoCheckmarkDoneSharp />
+                Improvement of existing infrastructure
+              </span>
+              <span className={styles["main-card-services-list-item"]}>
+                <IoCheckmarkDoneSharp />
+                Electrical services of any complexity
+              </span>
+              <span className={styles["main-card-services-list-item"]}>
+                <IoCheckmarkDoneSharp />
+                Construction of large offices
+              </span>
+              <span className={styles["main-card-services-list-item"]}>
+                <IoCheckmarkDoneSharp />
+                Design and construction of warehouse facilities
+              </span>
+              <span className={styles["main-card-services-list-item"]}>
+                <IoCheckmarkDoneSharp />
+                Management and operation of mining institutions
+              </span>
+              <span className={styles["main-card-services-list-item"]}>
+                <IoCheckmarkDoneSharp />
+                Development and implementation of infrastructure systems to
+                improve miners performance
+              </span>
             </div>
           </div>
-
-          <div className={styles["main-card"]}>
-            <h1 className={styles["main-card-title"]}>
-              2327 S Arizona Ave, Pecos, TX, 79772
-            </h1>
-            <span className={styles["main-card-statement"]}>
-              <Link href="mailto:anuar@brightalim.com">
-                anuar@brightalim.com
-              </Link>
-            </span>
-            <span className={styles["main-card-statement-more"]}>
-              <Link href={`tel:+16093058507`}>+1 (609) 305-8507</Link>
-            </span>
-            <div onClick={handleClick} className={styles["main-card-contact"]}>
-              Back
-            </div>
-          </div>
-        </ReactCardFlip>
+        </div>
       </div>
-      <div className={styles["main-section-title"]}>Our Projects</div>
+      <div id="gallery" className={styles["main-section-title"]}>
+        <GrGallery /> GALLERY OF OUR WORK
+      </div>
       <div className={styles["main-grid"]}>
         {Array.from(Array(caseCount).keys()).map((case_number: number) => {
           return (
@@ -114,6 +153,24 @@ export default function Home() {
             </div>
           );
         })}
+      </div>
+      <div id="contacts" className={styles["main-card-contacts"]}>
+        <span className={styles["main-card-contacts-item"]}>
+          <MdAttachEmail />
+          anuar@brightalim.com
+        </span>
+        <span className={styles["main-card-contacts-item"]}>
+          <FaSquareWhatsapp />
+          <a href="https://api.whatsapp.com/send?phone=16093058507">
+            +1 (609) 305-8507
+          </a>
+        </span>
+        <span className={styles["main-card-contacts-consulting"]}>
+          Free Consulting:
+          <span className={styles["main-card-contacts-consulting-number"]}>
+            +1 (609) 305-8507
+          </span>
+        </span>
       </div>
     </main>
   );

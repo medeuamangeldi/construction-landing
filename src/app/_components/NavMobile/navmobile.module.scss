@@ -1,0 +1,56 @@
+.main {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin-top: 20px;
+  padding: 1.25rem;
+  padding-top: 0;
+  background-color: white;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem; /* Adjust the '2rem' to match your design system's scale */
+}
+
+.list {
+  width: 100%;
+  padding: 0.08rem;
+  list-style-type: none;
+}
+
+.item:hover {
+  background-color: #e6b82b;
+  color: white;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.25rem; /* Adjust based on your design system's scale */
+  background-color: rgb(
+    255,
+    255,
+    255
+  ); /* Replace with the actual color code for 'neutral-950' */
+  color: black;
+}
+
+.menu {
+  background-color: black;
+  border-radius: 30px;
+  color: white;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.menu:hover {
+  background-color: #e6b82b;
+  cursor: pointer;
+}
+
+.menu:hover:after {
+  transform: scale(1);
+}
