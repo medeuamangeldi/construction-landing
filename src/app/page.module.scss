@@ -51,6 +51,41 @@
   }
 }
 
+.about-us {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  &-title {
+    &-fixed {
+      position: relative;
+      color: white;
+      font-size: 24px;
+      font-weight: 700;
+      /* We need double the stroke width because half of it gets covered up */
+      -webkit-text-stroke: 4px #322c1a;
+    }
+    /* Place the second copy of the text over top of the first */
+    &-fixed span {
+      position: absolute;
+      left: 0;
+      -webkit-text-stroke: 0;
+      pointer-events: none;
+    }
+  }
+  &-text {
+    font-size: 20px;
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
 .main {
   animation: smooth-appear 2s ease forwards;
   bottom: -100%;
@@ -98,6 +133,7 @@
         text-align: start;
         width: 100%;
         padding: 1px 40px;
+        max-width: 500px;
         &-more {
           margin-top: 100px;
           font-weight: 100;
@@ -108,8 +144,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 340px;
-        height: 207px;
+        max-width: 1040px;
+        max-height: 10 07px;
         box-shadow: -50px -50px 0 -40px #ffffff, 50px 50px 0 -40px #e6b82b;
       }
     }
@@ -148,13 +184,14 @@
       flex-direction: column;
       gap: 20px;
       margin-top: 20px;
+      padding: 20px;
       &-title {
         display: flex;
         flex-direction: row;
         gap: 10px;
         align-items: center;
         justify-content: center;
-        font-size: 27px;
+        font-size: 28px;
         font-weight: 700;
         white-space: nowrap;
         line-height: 50px;
@@ -164,16 +201,18 @@
       &-list {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
         align-items: center;
         justify-content: flex-start;
-        font-size: 17px;
+        font-size: 21px;
+        width: 100%;
         &-item {
           display: flex;
           flex-direction: row;
           gap: 10px;
           justify-content: center;
           align-items: center;
+          width: 100%;
         }
       }
     }
@@ -237,10 +276,11 @@
   &-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: flex-start;
+    gap: 30px;
+    justify-content: center;
     align-content: space-between;
     position: relative;
+    padding: 10px;
     &-case {
       opacity: 0.9;
       width: 100%;
@@ -294,7 +334,7 @@
     gap: 10px;
     align-items: center;
     justify-content: center;
-    font-size: 27px;
+    font-size: 28px;
     font-weight: 400;
     white-space: nowrap;
     line-height: 50px;
@@ -326,16 +366,16 @@
     &-card-hero {
       display: flex;
       flex-direction: row;
-      gap: 10px;
+      gap: 5px;
       margin-bottom: 30px;
       justify-content: center;
       align-items: center;
       padding: 0 70px;
       &-statement {
-        font-size: 27px;
+        font-size: 15px;
         font-weight: 400;
         color: #000000;
-        line-height: 50px;
+        line-height: 40px;
         text-align: start;
         width: 100%;
         &-more {
@@ -348,8 +388,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 400px;
-        height: 307px;
+        width: 600px;
+        height: 607px;
         box-shadow: -50px -50px 0 -40px #ffffff, 50px 50px 0 -40px #e6b82b;
       }
     }

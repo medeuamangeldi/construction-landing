@@ -17,15 +17,10 @@ export default function Home() {
   const [isFlipped, setIsFlipped] = useState(false);
   const [caseCount, setCaseCount]: any = useState();
   const caseNames = [
-    "Design Engineering, Industrial and Welding",
-    "Civil Works and Residential",
-    "Creativity",
+    "Cooling solutions",
+    "Filtration solutions",
+    "Maintenance and repair",
   ];
-
-  const handleClick = (e: any) => {
-    e.preventDefault();
-    setIsFlipped((prev) => !prev);
-  };
 
   const handleCaseClick = (case_number: number) => {
     router.push(`/${case_number}`);
@@ -62,8 +57,13 @@ export default function Home() {
             <Image
               src={`/photos/hero1.webp`}
               alt="image1"
-              width="440"
-              height="307"
+              width={440}
+              height={307}
+              style={{
+                maxHeight: "1000px",
+                maxWidth: "1000px",
+              }}
+              layout="responsive"
               className={styles["main-card-hero-image"]}
             />
           </div>
@@ -153,6 +153,49 @@ export default function Home() {
             </div>
           );
         })}
+      </div>
+      <div id="aboutus" className={styles["about-us"]}>
+        <div id="aboutus" className={styles["about-us-title-fixed"]}>
+          Innovate. Create. Elevate
+          <span>Innovate. Create. Elevate</span>
+        </div>
+        <div className={styles["about-us-text"]}>
+          Welcome to Bright Alim Corporation, your trusted partner in
+          construction solutions. With over 7 years of experience, our
+          international team combines creativity, expertise, and a passion for
+          innovation to deliver exceptional results.
+        </div>
+        <div className={styles["about-us-text"]}>
+          We integrate a creative approach with the strict laws of physics to
+          ensure seamless project execution. Our passion for quality, customer
+          satisfaction, and building strong relationships has built a loyal
+          following of clients who rely on us for outstanding performance.
+        </div>
+        <div className={styles["about-us-text"]}>
+          At Bright Alim Corporation, we&apos;re dedicated to bringing your
+          visions to life. Our expanded services include:
+          <span>
+            <ul>
+              <li>Construction solutions</li>
+              <li>Cryptocurrency mining support</li>
+              <li>Industrial efficiency solutions</li>
+              <li>Repair and maintenance of mining machines</li>
+              <li>Monitoring and optimization of mining operations</li>
+            </ul>
+          </span>
+        </div>
+        <div className={styles["about-us-text"]}>
+          We&apos;re proud to be a loyal partner for our customers, creating
+          value and delivering exceptional results. Partnering with us means
+          building a brighter tomorrow, today.
+        </div>
+        <div className={styles["about-us-text"]}>
+          Sincerely,
+          <br />
+          Anuar Yelemessov
+          <br />
+          Founder and CEO
+        </div>
       </div>
       <div id="contacts" className={styles["main-card-contacts"]}>
         <span className={styles["main-card-contacts-item"]}>
