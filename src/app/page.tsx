@@ -189,7 +189,12 @@ export default function Home() {
           value and delivering exceptional results. Partnering with us means
           building a brighter tomorrow, today.
         </div>
-        <div className={styles["about-us-text"]}>
+        <div
+          className={styles["about-us-text"]}
+          style={{
+            textAlign: "right",
+          }}
+        >
           Sincerely,
           <br />
           Anuar Yelemessov
