@@ -29,6 +29,7 @@
     "react-image-size": "^2.3.2",
     "react-loader-spinner": "^6.1.6",
     "react-use": "^17.5.0",
+    "resend": "^4.0.0",
     "sass": "^1.70.0",
     "shelljs": "^0.8.5",
     "yet-another-react-lightbox": "^3.16.0"

@@ -12,6 +12,7 @@ import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { GrGallery } from "react-icons/gr";
 import { FaSquareWhatsapp } from "react-icons/fa6";
 import { MdAttachEmail } from "react-icons/md";
+import send from "./_api/send";
 export default function Home() {
   const router = useRouter();
   const [isFlipped, setIsFlipped] = useState(false);
@@ -23,6 +24,57 @@ export default function Home() {
     const hours = String(date.getHours()).padStart(2, "0");
     const minutes = String(date.getMinutes()).padStart(2, "0");
     return `${year}-${month}-${day}T${hours}:${minutes}`;
+  };
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
+  const [date, setDate] = useState(formatDateForInput(new Date()));
+  const [comments, setComments] = useState("");
+  const handleSubmit = async () => {
+    const data = {
+      name,
+      email,
+      address,
+      phone,
+      date: new Date(date),
+      comments,
+    };
+    if (
+      data.name === "" ||
+      data.email === "" ||
+      data.address === "" ||
+      data.phone === ""
+    ) {
+      alert("Please fill out all fields");
+      return;
+    } else {
+      await send(data);
+    }
+  };
+  const handleChange = (e: any) => {
+    switch (e.target.id) {
+      case "name":
+        setName(e.target.value);
+        break;
+      case "email":
+        setEmail(e.target.value);
+        break;
+      case "address":
+        setAddress(e.target.value);
+        break;
+      case "phone":
+        setPhone(e.target.value);
+        break;
+      case "date":
+        setDate(e.target.value);
+        break;
+      case "comments":
+        setComments(e.target.value);
+        break;
+      default:
+        break;
+    }
   };
   const caseNames = [
     "Cooling solutions",
@@ -226,23 +278,24 @@ export default function Home() {
         <div className={styles["main-card-contacts-form"]}>
           <div className={styles["main-card-contacts-form-item"]}>
             <label htmlFor="name">Name:</label>
-            <input type="text" id="name" />
+            <input onChange={handleChange} type="text" id="name" />
           </div>
           <div className={styles["main-card-contacts-form-item"]}>
             <label htmlFor="email">Email:</label>
-            <input type="email" id="email" />
+            <input onChange={handleChange} type="email" id="email" />
           </div>
           <div className={styles["main-card-contacts-form-item"]}>
             <label htmlFor="address">Address:</label>
-            <input type="text" id="address" />
+            <input onChange={handleChange} type="text" id="address" />
           </div>
           <div className={styles["main-card-contacts-form-item"]}>
             <label htmlFor="phone">Phone:</label>
-            <input type="text" id="phone" />
+            <input onChange={handleChange} type="text" id="phone" />
           </div>
           <div className={styles["main-card-contacts-form-item"]}>
             <label htmlFor="date">Date:</label>
             <input
+              onChange={handleChange}
               style={{
                 fontSize: "0.8rem",
               }}
@@ -253,12 +306,29 @@ export default function Home() {
             />
           </div>
           <div className={styles["main-card-contacts-form-item"]}>
-            <label htmlFor="comments1">Message:</label>
+            <label htmlFor="comments">Message:</label>
             <input
+              onChange={handleChange}
               className={styles["comments"]}
               type="textarea"
               id="comments"
             />
+          </div>
+          <div
+            style={{
+              display: "flex",
+              width: "100%",
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
+            }}
+          >
+            <button
+              onClick={() => handleSubmit()}
+              className={styles["main-card-contacts-form-button"]}
+            >
+              <MdAttachEmail />
+              Send
+            </button>
           </div>
         </div>
       </div>
