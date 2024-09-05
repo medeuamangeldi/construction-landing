@@ -48,80 +48,78 @@ export default function Home() {
   return (
     <main className={styles["main"]}>
       <Menu />
-      <div>
-        <div className={styles["main-card"]}>
-          <div className={styles["main-card-hero"]}>
-            <span className={styles["main-card-hero-statement"]}>
-              HIGH-QUALITY AND RELIABLE SOLUTIONS FOR YOUR FACILITIES!
+      <div className={styles["main-card"]}>
+        <div className={styles["main-card-hero"]}>
+          <span className={styles["main-card-hero-statement"]}>
+            HIGH-QUALITY AND RELIABLE SOLUTIONS FOR YOUR FACILITIES!
+          </span>
+          <Image
+            src={`/photos/hero1.webp`}
+            alt="image1"
+            width={440}
+            height={307}
+            style={{
+              maxHeight: "1000px",
+              maxWidth: "1000px",
+            }}
+            layout="responsive"
+            className={styles["main-card-hero-image"]}
+          />
+        </div>
+        <div className={styles["main-card-subhero"]}>
+          <div className={styles["main-card-subhero-titles"]}>
+            <span className={styles["main-card-subhero-titles-title"]}>
+              11 BITCOIN FARMS SERVICE
             </span>
-            <Image
-              src={`/photos/hero1.webp`}
-              alt="image1"
-              width={440}
-              height={307}
-              style={{
-                maxHeight: "1000px",
-                maxWidth: "1000px",
-              }}
-              layout="responsive"
-              className={styles["main-card-hero-image"]}
-            />
+            <span className={styles["main-card-subhero-titles-title"]}>
+              +7 YEARS OF EXPERIENCE
+            </span>
+            <span className={styles["main-card-subhero-titles-title"]}>
+              + 50 employees
+            </span>
           </div>
-          <div className={styles["main-card-subhero"]}>
-            <div className={styles["main-card-subhero-titles"]}>
-              <span className={styles["main-card-subhero-titles-title"]}>
-                11 BITCOIN FARMS SERVICE
-              </span>
-              <span className={styles["main-card-subhero-titles-title"]}>
-                +7 YEARS OF EXPERIENCE
-              </span>
-              <span className={styles["main-card-subhero-titles-title"]}>
-                + 50 employees
-              </span>
-            </div>
-            <p className={styles["main-card-subhero-text"]}>
-              lf you are seeking a reliable solution for the design and
-              construction of a competitive cryptocurrency mining farm but are
-              unsure where to start or whom to trust, we provide services that
-              range from individual cryptocurrency mining rigs to complete
-              mining farm setups
-            </p>
+          <p className={styles["main-card-subhero-text"]}>
+            lf you are seeking a reliable solution for the design and
+            construction of a competitive cryptocurrency mining farm but are
+            unsure where to start or whom to trust, we provide services that
+            range from individual cryptocurrency mining rigs to complete mining
+            farm setups
+          </p>
+        </div>
+        <div id="services" className={styles["main-card-services"]}>
+          <div className={styles["main-card-services-title"]}>
+            <LuConstruction /> OUR SERVICES
           </div>
-          <div id="services" className={styles["main-card-services"]}>
-            <div className={styles["main-card-services-title"]}>
-              <LuConstruction /> OUR SERVICES
-            </div>
-            <div className={styles["main-card-services-list"]}>
-              <span className={styles["main-card-services-list-item"]}>
-                <IoCheckmarkDoneSharp />
-                Construction of data centers
-              </span>
-              <span className={styles["main-card-services-list-item"]}>
-                <IoCheckmarkDoneSharp />
-                Improvement of existing infrastructure
-              </span>
-              <span className={styles["main-card-services-list-item"]}>
-                <IoCheckmarkDoneSharp />
-                Electrical services of any complexity
-              </span>
-              <span className={styles["main-card-services-list-item"]}>
-                <IoCheckmarkDoneSharp />
-                Construction of large offices
-              </span>
-              <span className={styles["main-card-services-list-item"]}>
-                <IoCheckmarkDoneSharp />
-                Design and construction of warehouse facilities
-              </span>
-              <span className={styles["main-card-services-list-item"]}>
-                <IoCheckmarkDoneSharp />
-                Management and operation of mining institutions
-              </span>
-              <span className={styles["main-card-services-list-item"]}>
-                <IoCheckmarkDoneSharp />
-                Development and implementation of infrastructure systems to
-                improve miners performance
-              </span>
-            </div>
+          <div className={styles["main-card-services-list"]}>
+            <span className={styles["main-card-services-list-item"]}>
+              <IoCheckmarkDoneSharp />
+              Construction of data centers
+            </span>
+            <span className={styles["main-card-services-list-item"]}>
+              <IoCheckmarkDoneSharp />
+              Improvement of existing infrastructure
+            </span>
+            <span className={styles["main-card-services-list-item"]}>
+              <IoCheckmarkDoneSharp />
+              Electrical services of any complexity
+            </span>
+            <span className={styles["main-card-services-list-item"]}>
+              <IoCheckmarkDoneSharp />
+              Construction of large offices
+            </span>
+            <span className={styles["main-card-services-list-item"]}>
+              <IoCheckmarkDoneSharp />
+              Design and construction of warehouse facilities
+            </span>
+            <span className={styles["main-card-services-list-item"]}>
+              <IoCheckmarkDoneSharp />
+              Management and operation of mining institutions
+            </span>
+            <span className={styles["main-card-services-list-item"]}>
+              <IoCheckmarkDoneSharp />
+              Development and implementation of infrastructure systems to
+              improve miners performance
+            </span>
           </div>
         </div>
       </div>
@@ -207,23 +205,21 @@ export default function Home() {
           Founder and CEO
         </div>
       </div>
+
       <div id="contacts" className={styles["main-card-contacts"]}>
-        <span className={styles["main-card-contacts-item"]}>
-          <MdAttachEmail />
-          anuar@brightalim.com
-        </span>
-        <span className={styles["main-card-contacts-item"]}>
-          <FaSquareWhatsapp />
-          <a href="https://api.whatsapp.com/send?phone=16093058507">
-            +1 (609) 305-8507
-          </a>
-        </span>
-        <span className={styles["main-card-contacts-consulting"]}>
-          Free Consulting:
-          <span className={styles["main-card-contacts-consulting-number"]}>
-            +1 (609) 305-8507
-          </span>
-        </span>
+        <div className={styles["main-card-contacts-title"]}>
+          Schedule Meeting at Your Site
+        </div>
+        <div className={styles["main-card-contacts-subtitle"]}>
+          Please fill out the form below to send us an email and we will get
+          back to you as soon as possible.
+        </div>
+        <div className={styles["main-card-contacts-form"]}>
+          <div className={styles["main-card-contacts-form-item"]}>
+            <label htmlFor="name">Name</label>
+            <input type="text" id="name" />
+          </div>
+        </div>
       </div>
     </main>
   );

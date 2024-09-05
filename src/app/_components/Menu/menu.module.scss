@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+  padding: 0 20px;
   width: 100%;
   left: 0;
   right: 0;
@@ -25,10 +25,10 @@
       font-size: 14px;
       font-weight: 600;
       &-icon {
-        color: #E6B82B;
+        color: #e6b82b;
         background-color: #ece9e9;
         font-size: 18px;
-        padding: 15px;
+        padding: 5px 15px;
         border-radius: 25px;
         transition: all 0.4s ease;
       }
@@ -37,7 +37,7 @@
         transform: scale(1.2);
       }
       &-text-colored {
-        color: #E6B82B;
+        color: #e6b82b;
       }
 
       &-subcontainer {

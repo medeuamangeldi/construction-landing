@@ -59,8 +59,9 @@
   margin-bottom: 20px;
   justify-content: center;
   align-items: center;
+  background-color: #ffffff;
   &-title {
-    color: rgb(0, 0, 0);
+    color: rgb(31, 31, 31);
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -83,13 +84,13 @@
     gap: 20px;
     text-align: justify;
     text-justify: inter-word;
+    color: #262626;
   }
 }
 
 .main {
   animation: smooth-appear 2s ease forwards;
-  bottom: -100%;
-  padding: 10px;
+  // bottom: -100%;
   opacity: 0;
   display: flex;
   width: 100%;
@@ -99,10 +100,7 @@
   &-card {
     width: 100%;
     font-family: "AirbnbCereal_W_Lt";
-    padding: 10px;
-    background-color: #ffffff;
-    // border: 0 solid #e5e7eb;
-    // border-radius: 1px;
+    background-color: #faf4e4;
     color: white;
     display: flex;
     flex-direction: column;
@@ -111,7 +109,6 @@
     gap: 10px;
     text-align: center;
     line-height: 30px;
-    // box-shadow: inset 0 0 1px #cecece;
 
     &-title {
       font-size: 28px;
@@ -125,9 +122,10 @@
       margin-bottom: 30px;
       justify-content: center;
       align-items: center;
+      padding: 0 15px;
       &-statement {
         font-size: 27px;
-        font-weight: 400;
+        font-weight: 900;
         color: #000000;
         line-height: 50px;
         text-align: start;
@@ -154,6 +152,7 @@
       display: flex;
       flex-direction: column;
       color: #000000;
+      padding: 0 15px;
       &-titles {
         display: flex;
         flex-wrap: wrap;
@@ -173,18 +172,20 @@
         }
       }
       &-text {
-        margin-top: 20px;
-        font-size: 17px;
+        padding: 40px 0;
+        font-size: 19px;
       }
     }
 
     &-services {
       display: flex;
-      color: #000000;
+      color: #202020;
       flex-direction: column;
       gap: 20px;
       margin-top: 20px;
-      padding: 20px;
+      padding: 40px 10px;
+      width: 100%;
+      background-color: #fbfbfb;
       &-title {
         display: flex;
         flex-direction: row;
@@ -298,16 +299,15 @@
       box-shadow: inset 0 0 1px #918f8f;
       overflow: hidden;
       position: relative;
-      min-height: 500px;
+      min-height: 400px;
       transition: all 0.4s ease;
 
       &-caption {
         padding: 10px 0;
         text-align: center;
         // border-radius: 5px;
-        border: 1px solid #7a7a7a;
-        background-color: #262626;
-        color: #ffffff;
+        background-color: #ffffff;
+        color: #1a1a1a;
         position: absolute;
         bottom: 0;
         right: 0;
@@ -315,6 +315,7 @@
         transition: all 0.4s ease;
         box-shadow: inset 0 0 1px #918f8f;
         font-size: 19px;
+        font-weight: 600;
       }
     }
 
@@ -375,7 +376,7 @@
       padding: 0 70px;
       &-statement {
         font-size: 15px;
-        font-weight: 400;
+        font-weight: 900;
         color: #000000;
         line-height: 40px;
         text-align: start;
@@ -415,7 +416,7 @@
       padding: 0 70px;
       &-statement {
         font-size: 27px;
-        font-weight: 400;
+        font-weight: 900;
         color: #000000;
         line-height: 50px;
         text-align: start;
