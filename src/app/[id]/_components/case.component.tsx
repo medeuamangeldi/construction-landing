@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import { useRouter } from "next/navigation";
 import { importAll } from "@/app/_helpers";
+import Spinner from "@/app/_components/Spinner/spinner.component";
 
 export interface CustomImage extends Image {
   original: string;
@@ -78,17 +79,7 @@ export default function Case({ params }: { params: { id: number } }) {
           className={styles["left-arrow"]}
           icon={faCircleLeft}
         />
-        {isLoading && (
-          <ThreeCircles
-            visible={isLoading}
-            height="100"
-            width="100"
-            color="#ffffff"
-            ariaLabel="three-circles-loading"
-            wrapperStyle={{}}
-            wrapperClass={styles["spinner"]}
-          />
-        )}
+        {isLoading && <Spinner />}
         {!isLoading && (
           <>
             <Gallery
