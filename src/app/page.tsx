@@ -16,6 +16,14 @@ export default function Home() {
   const router = useRouter();
   const [isFlipped, setIsFlipped] = useState(false);
   const [caseCount, setCaseCount]: any = useState();
+  const formatDateForInput = (date: any) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
+  };
   const caseNames = [
     "Cooling solutions",
     "Filtration solutions",
@@ -208,16 +216,49 @@ export default function Home() {
 
       <div id="contacts" className={styles["main-card-contacts"]}>
         <div className={styles["main-card-contacts-title"]}>
-          Schedule Meeting at Your Site
+          SCHEDULE MEETING AT YOUR SITE
         </div>
+        <div className={styles["main-card-contacts-hr"]}></div>
         <div className={styles["main-card-contacts-subtitle"]}>
           Please fill out the form below to send us an email and we will get
           back to you as soon as possible.
         </div>
         <div className={styles["main-card-contacts-form"]}>
           <div className={styles["main-card-contacts-form-item"]}>
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Name:</label>
             <input type="text" id="name" />
+          </div>
+          <div className={styles["main-card-contacts-form-item"]}>
+            <label htmlFor="email">Email:</label>
+            <input type="email" id="email" />
+          </div>
+          <div className={styles["main-card-contacts-form-item"]}>
+            <label htmlFor="address">Address:</label>
+            <input type="text" id="address" />
+          </div>
+          <div className={styles["main-card-contacts-form-item"]}>
+            <label htmlFor="phone">Phone:</label>
+            <input type="text" id="phone" />
+          </div>
+          <div className={styles["main-card-contacts-form-item"]}>
+            <label htmlFor="date">Date:</label>
+            <input
+              style={{
+                fontSize: "0.8rem",
+              }}
+              type="datetime-local"
+              id="date"
+              value={`${formatDateForInput(new Date())}`}
+              min={`${formatDateForInput(new Date())}`}
+            />
+          </div>
+          <div className={styles["main-card-contacts-form-item"]}>
+            <label htmlFor="comments1">Message:</label>
+            <input
+              className={styles["comments"]}
+              type="textarea"
+              id="comments"
+            />
           </div>
         </div>
       </div>
