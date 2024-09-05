@@ -40,11 +40,11 @@ export default function Case({ params }: { params: { id: number } }) {
     const imagesLocal = [];
     for (let index = 1; index < count + 1; index++) {
       const dimensions = handleDimensions(
-        `/images/case${params.id}/case${params.id}_${index}.jpeg`
+        `/images/case${params.id}/case${params.id}_${index}.webp`
       );
       imagesLocal.push({
-        src: `/images/case${params.id}/case${params.id}_${index}.jpeg`,
-        original: `/images/case${params.id}/case${params.id}_${index}.jpeg`,
+        src: `/images/case${params.id}/case${params.id}_${index}.webp`,
+        original: `/images/case${params.id}/case${params.id}_${index}.webp`,
         width: (await dimensions).width,
         height: (await dimensions).height,
         alt: `Case ${params.id} image ${index}`,

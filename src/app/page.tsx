@@ -138,7 +138,7 @@ export default function Home() {
               style={{
                 backgroundImage: `url(/images/case${case_number + 1}/case${
                   case_number + 1
-                }_1.jpeg)`,
+                }_1.webp)`,
                 width: "100%",
                 height: "100%",
                 backgroundSize: "cover",
@@ -155,11 +155,10 @@ export default function Home() {
         })}
       </div>
       <div id="aboutus" className={styles["about-us"]}>
-        <div id="aboutus" className={styles["about-us-title-fixed"]}>
+        <div id="aboutus" className={styles["about-us-title"]}>
           Innovate. Create. Elevate
-          <span>Innovate. Create. Elevate</span>
         </div>
-        <div className={styles["about-us-text"]}>
+        <div className={styles["about-us-text"]} style={{ textIndent: "2em" }}>
           Welcome to Bright Alim Corporation, your trusted partner in
           construction solutions. With over 7 years of experience, our
           international team combines creativity, expertise, and a passion for
@@ -171,11 +170,17 @@ export default function Home() {
           satisfaction, and building strong relationships has built a loyal
           following of clients who rely on us for outstanding performance.
         </div>
-        <div className={styles["about-us-text"]}>
+        <div className={styles["about-us-text"]} style={{ textIndent: "2em" }}>
           At Bright Alim Corporation, we&apos;re dedicated to bringing your
           visions to life. Our expanded services include:
-          <span>
-            <ul>
+          <span style={{ textAlign: "left" }}>
+            <ul
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "5px",
+              }}
+            >
               <li>Construction solutions</li>
               <li>Cryptocurrency mining support</li>
               <li>Industrial efficiency solutions</li>

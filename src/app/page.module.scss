@@ -54,27 +54,25 @@
 .about-us {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
   padding: 20px;
   margin-bottom: 20px;
   justify-content: center;
   align-items: center;
   &-title {
-    &-fixed {
-      position: relative;
-      color: white;
-      font-size: 24px;
-      font-weight: 700;
-      /* We need double the stroke width because half of it gets covered up */
-      -webkit-text-stroke: 4px #322c1a;
-    }
-    /* Place the second copy of the text over top of the first */
-    &-fixed span {
-      position: absolute;
-      left: 0;
-      -webkit-text-stroke: 0;
-      pointer-events: none;
-    }
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 400;
+    white-space: nowrap;
+    line-height: 50px;
+    text-align: center;
+    width: 100%;
+    margin: 20px 0;
   }
   &-text {
     font-size: 20px;
@@ -83,6 +81,8 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    text-align: justify;
+    text-justify: inter-word;
   }
 }
 
@@ -298,21 +298,23 @@
       box-shadow: inset 0 0 1px #918f8f;
       overflow: hidden;
       position: relative;
-      min-height: 300px;
+      min-height: 500px;
       transition: all 0.4s ease;
 
       &-caption {
-        padding: 5px 0;
+        padding: 10px 0;
         text-align: center;
         // border-radius: 5px;
-        background-color: #ffffff;
-        color: #000000;
+        border: 1px solid #7a7a7a;
+        background-color: #262626;
+        color: #ffffff;
         position: absolute;
         bottom: 0;
         right: 0;
         left: 0;
         transition: all 0.4s ease;
         box-shadow: inset 0 0 1px #918f8f;
+        font-size: 19px;
       }
     }
 
