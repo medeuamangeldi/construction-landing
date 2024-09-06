@@ -1,22 +1,22 @@
 "use client";
 import styles from "./page.module.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ReactCardFlip from "react-card-flip";
 import { useRouter } from "next/navigation";
 import { importAll } from "./_helpers";
 import Image from "next/image";
-import Link from "next/link";
 import Menu from "./_components/Menu/menu.component";
 import { LuConstruction } from "react-icons/lu";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { GrGallery } from "react-icons/gr";
 import { FaSquareWhatsapp } from "react-icons/fa6";
+import emailjs from "@emailjs/browser";
 import { MdAttachEmail } from "react-icons/md";
-import send from "./_api/send";
 export default function Home() {
   const router = useRouter();
   const [isFlipped, setIsFlipped] = useState(false);
   const [caseCount, setCaseCount]: any = useState();
+  const form: any = useRef(null);
   const formatDateForInput = (date: any) => {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -31,7 +31,8 @@ export default function Home() {
   const [phone, setPhone] = useState("");
   const [date, setDate] = useState(formatDateForInput(new Date()));
   const [comments, setComments] = useState("");
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
     const data = {
       name,
       email,
@@ -49,7 +50,19 @@ export default function Home() {
       alert("Please fill out all fields");
       return;
     } else {
-      await send(data);
+      const service_id: any = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const template_id: any = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const user_id: any = process.env.NEXT_PUBLIC_EMAILJS_USER_ID;
+      await emailjs
+        .sendForm(service_id, template_id, form.current, user_id)
+        .then(
+          (result) => {
+            alert("Email sent successfully! We will contact you shortly.");
+          },
+          (error) => {
+            alert(error.text);
+          }
+        );
     }
   };
   const handleChange = (e: any) => {
@@ -275,27 +288,59 @@ export default function Home() {
           Please fill out the form below to send us an email and we will get
           back to you as soon as possible.
         </div>
-        <div className={styles["main-card-contacts-form"]}>
+        <form
+          ref={form}
+          className={styles["main-card-contacts-form"]}
+          onSubmit={handleSubmit}
+        >
           <div className={styles["main-card-contacts-form-item"]}>
             <label htmlFor="name">Name:</label>
-            <input onChange={handleChange} type="text" id="name" />
+            <input
+              onChange={handleChange}
+              type="text"
+              id="name"
+              name="name"
+              required
+            />
           </div>
           <div className={styles["main-card-contacts-form-item"]}>
             <label htmlFor="email">Email:</label>
-            <input onChange={handleChange} type="email" id="email" />
+            <input
+              onChange={handleChange}
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
           </div>
           <div className={styles["main-card-contacts-form-item"]}>
             <label htmlFor="address">Address:</label>
-            <input onChange={handleChange} type="text" id="address" />
+            <input
+              onChange={handleChange}
+              type="text"
+              id="address"
+              name="address"
+              required
+            />
           </div>
           <div className={styles["main-card-contacts-form-item"]}>
             <label htmlFor="phone">Phone:</label>
-            <input onChange={handleChange} type="text" id="phone" />
+            <input
+              onChange={handleChange}
+              type="tel"
+              id="phone"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              placeholder="123-456-7890"
+              name="phone"
+              required
+            />
           </div>
           <div className={styles["main-card-contacts-form-item"]}>
             <label htmlFor="date">Date:</label>
             <input
               onChange={handleChange}
+              name="date"
+              required
               style={{
                 fontSize: "0.8rem",
               }}
@@ -308,6 +353,7 @@ export default function Home() {
           <div className={styles["main-card-contacts-form-item"]}>
             <label htmlFor="comments">Message:</label>
             <input
+              name="comments"
               onChange={handleChange}
               className={styles["comments"]}
               type="textarea"
@@ -323,14 +369,14 @@ export default function Home() {
             }}
           >
             <button
-              onClick={() => handleSubmit()}
+              type="submit"
               className={styles["main-card-contacts-form-button"]}
             >
               <MdAttachEmail />
               Send
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </main>
   );
