@@ -329,8 +329,8 @@ export default function Home() {
               onChange={handleChange}
               type="tel"
               id="phone"
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-              placeholder="123-456-7890"
+              pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+              placeholder="2223334444"
               name="phone"
               required
             />
