@@ -57,7 +57,7 @@ export default function Home() {
         .sendForm(service_id, template_id, form.current, user_id)
         .then(
           (result) => {
-            alert(result.text);
+            alert("Email sent successfully! We will contact you shortly.");
           },
           (error) => {
             alert(error.text);
@@ -347,7 +347,6 @@ export default function Home() {
               type="datetime-local"
               id="date"
               value={`${formatDateForInput(new Date())}`}
-              min={`${formatDateForInput(new Date())}`}
             />
           </div>
           <div className={styles["main-card-contacts-form-item"]}>
