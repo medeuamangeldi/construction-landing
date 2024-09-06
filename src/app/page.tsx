@@ -57,7 +57,7 @@ export default function Home() {
         .sendForm(service_id, template_id, form.current, user_id)
         .then(
           (result) => {
-            alert("Email sent successfully! We will contact you shortly.");
+            alert(result.text);
           },
           (error) => {
             alert(error.text);
